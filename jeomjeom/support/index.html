@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://modusoft.kr/jeomjeom/support/">
+<title>지원 — 점점</title>
+<meta name="description" content="점점(두통 기록 앱) 지원 페이지. 자주 묻는 질문과 문의 방법.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#211D1A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="모두소프트">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://modusoft.kr/jeomjeom/support/">
+<meta property="og:title" content="지원 — 점점">
+<meta property="og:description" content="점점 앱의 자주 묻는 질문과 문의 방법.">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<style>
+  :root{
+    --ink:#211D1A; --body:#57534E; --muted:#79716B; --line:#E7E5E4;
+    --bg:#FCFCFB; --paper:#FFFFFF; --cream:#FAF8F6;
+    --jeomjeom:#2F8F80; --jeomjeom-deep:#1F6B60;
+    --r-md:12px; --r-lg:16px; --r-pill:999px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,
+                'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  .wrap{max-width:760px;margin:0 auto;padding-inline:40px}
+
+  header{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;
+       min-height:62px;flex-wrap:wrap;padding-block:8px}
+  .brand{display:flex;align-items:center;gap:9px;text-decoration:none}
+  .brand img{width:26px;height:26px;border-radius:7px;display:block}
+  .brand b{font-size:18px;font-weight:900;letter-spacing:-.5px}
+  .nav nav{display:flex;flex-wrap:wrap;gap:20px}
+  .nav nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
+  .nav nav a:hover{color:var(--ink)}
+
+  .crumb{padding-block:28px 0;font-size:13px;color:var(--muted)}
+  .crumb a{text-decoration:none}
+  .crumb a:hover{color:var(--ink)}
+  .crumb span{margin-inline:6px}
+
+  main .wrap{padding-block:18px 72px}
+  h1{font-size:34px;font-weight:900;letter-spacing:-1.4px;line-height:1.25}
+  .lede{margin-top:12px;font-size:16px;color:var(--body)}
+
+  .contact{margin-top:28px;padding:22px;border-radius:var(--r-lg);background:var(--ink);color:#F5F3F1}
+  .contact h2{font-size:18px;font-weight:800;color:var(--paper);letter-spacing:-.4px}
+  .contact p{margin-top:8px;font-size:14.5px;color:#C4BDB6;line-height:1.75}
+  .contact a.mail{display:inline-block;margin-top:14px;font-size:19px;font-weight:800;color:var(--paper);
+                  text-decoration:none;border-bottom:2px solid #6B625B;padding-bottom:2px}
+  .contact a.mail:hover{border-bottom-color:var(--paper)}
+
+  h2.sec{margin-top:44px;font-size:13px;font-weight:800;letter-spacing:1.4px;color:var(--muted);text-transform:uppercase}
+  .faq{margin-top:14px;display:grid;gap:12px}
+  details{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);padding:0 18px}
+  summary{cursor:pointer;list-style:none;padding-block:15px;font-size:16px;font-weight:700;letter-spacing:-.3px;
+          display:flex;justify-content:space-between;gap:12px;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-weight:400;color:var(--muted);font-size:20px;line-height:1;flex:none}
+  details[open] summary::after{content:"–"}
+  details p{padding-bottom:16px;font-size:15px;color:var(--body);line-height:1.8}
+  details p+p{margin-top:-6px}
+  kbd{font-family:inherit;font-size:13.5px;padding:1px 7px;border-radius:6px;background:var(--cream);border:1px solid var(--line)}
+
+  .note{margin-top:34px;font-size:13.5px;color:var(--muted);line-height:1.75}
+
+  footer{border-top:1px solid var(--line);background:var(--paper)}
+  footer .wrap{max-width:1040px;padding-block:34px;font-size:13px;color:var(--muted);line-height:1.9}
+  footer .biz{display:flex;flex-wrap:wrap;gap:6px 14px}
+  footer .copy{margin-top:12px;font-size:12.5px;color:#A8A29E}
+
+  @media (max-width:760px){
+    .wrap{padding-inline:22px}
+    h1{font-size:27px;letter-spacing:-1px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav" style="max-width:1040px">
+    <a class="brand" href="/">
+      <img src="/assets/favicon-192.png" alt="" width="26" height="26">
+      <b>모두소프트</b>
+    </a>
+    <nav>
+      <a href="/jeomjeom/">점점</a>
+      <a href="/jeomjeom/privacy/">개인정보처리방침</a>
+      <a href="/#contact">문의</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="crumb"><a href="/">모두소프트</a><span>›</span><a href="/jeomjeom/">점점</a><span>›</span>지원</div>
+
+    <h1>점점 — 지원</h1>
+    <p class="lede">두통 기록 앱 점점을 쓰다 막히는 것이 있으면 아래를 먼저 보시고, 없으면 메일 주세요.</p>
+
+    <div class="contact">
+      <h2>문의</h2>
+      <p>버그 제보, 제안, 사용 방법 문의 모두 이 주소로 보내 주세요. 직접 읽고 답장드립니다.
+         답변까지 2~3일 걸릴 수 있습니다. 앱 설정 › 앱 정보 › 버전에 적힌 숫자를 함께 적어 주시면 빠릅니다.</p>
+      <a class="mail" href="mailto:admin@modusoft.kr">admin@modusoft.kr</a>
+    </div>
+
+    <h2 class="sec">자주 묻는 질문</h2>
+    <div class="faq">
+      <details open>
+        <summary>기록이 다른 기기와 동기화되나요?</summary>
+        <p>아니요. 점점은 서버가 없어서 기록이 기기 밖으로 나가지 않습니다.
+           기기를 바꾸실 때는 <kbd>설정</kbd> › <kbd>전체 백업 (JSON)</kbd>으로 파일을 저장한 뒤,
+           새 기기에서 <kbd>백업에서 되살리기</kbd>로 불러오시면 됩니다.</p>
+      </details>
+      <details>
+        <summary>기기를 잃어버리면 기록도 사라지나요?</summary>
+        <p>네. 앱 데이터는 iCloud·Android 자동 백업에도 들어가지 않습니다.
+           정기적으로 <kbd>설정</kbd> › <kbd>전체 백업 (JSON)</kbd>으로 백업 파일을 만들어 두시길 권합니다.
+           파일을 어디에 보관할지는 사용자가 정합니다.</p>
+      </details>
+      <details>
+        <summary>한의원에 낼 주간 리포트는 어떻게 뽑나요?</summary>
+        <p><kbd>달력</kbd> 탭 오른쪽 위의 리포트 버튼 › 기간 선택 › <kbd>PDF 만들기</kbd>.
+           설정 › 주간 리포트에서도 같은 화면으로 갑니다. 리포트에 인쇄할 이름은 설정 › 이름에 적습니다.</p>
+      </details>
+      <details>
+        <summary>두통이 하루에 열 번 넘게 있는데 다 기록해야 하나요?</summary>
+        <p>점점은 그런 분들을 위해 만들었습니다. 아플 때 부위 버튼 한 번이면 시각과 부위가 저장되고,
+           강도와 「끝」은 여유 있을 때 눌러도 됩니다. 강도를 안 고른 기록도 표의 횟수에는 들어갑니다.</p>
+      </details>
+      <details>
+        <summary>통계 탭에 차트가 안 보여요.</summary>
+        <p>기록이 14일 이상 쌓여야 추이 차트가 나옵니다. 그 전에는 「조금 더 기록하면 추이를 볼 수 있어요」가 표시됩니다.
+           안 적은 날은 0회가 아니라 「기록 없음」으로 세어서, 하루 평균은 기록한 날로만 나눕니다.</p>
+      </details>
+      <details>
+        <summary>예전에 텍스트로 적어 둔 기록을 옮길 수 있나요?</summary>
+        <p>네. <kbd>설정</kbd> › <kbd>텍스트 기록 가져오기</kbd>에서 .txt 파일을 고르면 됩니다.
+           읽지 못한 줄은 원문 그대로 보관되어 나중에 고칠 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>잠금화면의 「끝」이 안 보여요.</summary>
+        <p>iPhone 잠금화면 표시(Live Activity)는 iOS 16.2 이상에서 동작하고, 설정 › 점점 › 실시간 현황이 켜져 있어야 합니다.
+           앱 안의 「끝」 버튼은 항상 있습니다.</p>
+      </details>
+      <details>
+        <summary>기록을 완전히 지우려면요?</summary>
+        <p>앱 안에서 기록을 지우거나 앱을 삭제하면 됩니다. 다른 곳에 사본이 없어서 별도 요청이 필요 없습니다.</p>
+      </details>
+    </div>
+
+    <p class="note">점점은 기록된 내용을 정리해 보여줄 뿐 진단이 아닙니다. 몸 상태에 대한 판단은 의료 전문가와 하세요.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="biz">
+      <span>모두소프트 (ModuSoft)</span>
+      <span>대표 신두식</span>
+      <span>사업자등록번호 458-12-02914</span>
+      <span>admin@modusoft.kr</span>
+    </div>
+    <div class="copy">© 2026 모두소프트 (ModuSoft). All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>

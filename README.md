@@ -3,6 +3,17 @@
 modusoft.kr — 모두소프트 앱 소개 허브 (정적 사이트).
 
 - 빌드 없음. `index.html` 과 `assets/` 를 그대로 서빙한다.
+- 앱별 페이지는 **경로**다 (서브도메인·별도 도메인 아님 — 스토어에 적은 URL 이 앱이 사는 동안
+  살아 있어야 하는데, 경로는 프로젝트·인증서·DNS 하나로 전부를 지킨다).
+
+| 경로 | 내용 | 스토어 |
+|---|---|---|
+| `/jeomjeom/` | 점점 소개 | 마케팅 URL (선택) |
+| `/jeomjeom/privacy/` | 점점 개인정보처리방침 | **Apple·Play 필수** |
+| `/jeomjeom/support/` | 점점 지원·FAQ | Apple 필수 |
+
+  원고의 정본은 앱 저장소 `jeomjeom/docs/WEB.md`·`docs/STORE_LISTING.md` 다. 방침 문장은
+  앱 안 「개인정보 안내」 화면과 같은 사실을 말해야 한다(둘 중 하나만 고치지 않는다).
 - 배포: Cloudflare Pages (`main` 브랜치 푸시 → 자동 배포)
   - Framework preset: `None`
   - Build command: `exit 0`

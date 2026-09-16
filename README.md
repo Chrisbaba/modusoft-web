@@ -10,7 +10,12 @@ modusoft.kr — 모두소프트 앱 소개 허브 (정적 사이트).
 |---|---|---|
 | `/jeomjeom/` | 점점 소개 | 마케팅 URL (선택) |
 | `/jeomjeom/privacy/` | 점점 개인정보처리방침 | **Apple·Play 필수** |
+| `/jeomjeom/terms/` | 점점 이용약관 | 선택 (App Store EULA 칸) |
 | `/jeomjeom/support/` | 점점 지원·FAQ | Apple 필수 |
+
+  `assets/og/*.png` 은 카카오톡·슬랙 미리보기용 1200×630 이다 — 없으면 페이지의 첫 큰 이미지(뭐무
+  아이콘)를 집는다. 바꾼 뒤에는 카카오 공유 디버거(developers.kakao.com/tool/debugger/sharing)에서
+  캐시를 지운다.
 
   원고의 정본은 앱 저장소 `jeomjeom/docs/WEB.md`·`docs/STORE_LISTING.md` 다. 방침 문장은
   앱 안 「개인정보 안내」 화면과 같은 사실을 말해야 한다(둘 중 하나만 고치지 않는다).

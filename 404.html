@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>페이지를 찾을 수 없습니다 — 모두소프트</title>
+<!-- 🔴 이 파일이 있어야 Cloudflare Pages 가 없는 경로에 404 를 돌려준다. 없으면 SPA 로 보고
+     index.html 을 200 으로 내주는데, /assets/* 는 1년 immutable 캐시라 배포 전에 새 자산 URL 을
+     한 번만 요청해도 그 HTML 이 이미지 자리에 1년 동안 박힌다. 지우지 않는다. -->
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#211D1A">
+<link rel="icon" href="/assets/brand/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<style>
+  :root{
+    --ink:#211D1A; --body:#57534E; --muted:#79716B; --line:#E7E5E4;
+    --bg:#FCFCFB; --paper:#FFFFFF; --cream:#FAF8F6;
+    --r-pill:999px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,
+                'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;
+    min-height:100vh;display:flex;flex-direction:column;
+  }
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding-inline:40px;width:100%}
+
+  header{background:var(--paper);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;
+       min-height:62px;flex-wrap:wrap;padding-block:8px}
+  /* 로고는 글자까지 도형으로 바꾼 SVG 한 장이다 — 웹 폰트 없이 어느 기기에서나 같게 보인다. */
+  .brand{display:flex;align-items:center;text-decoration:none}
+  .brand img{height:34px;width:auto;display:block}
+
+  main{flex:1}
+  main .wrap{padding-block:96px}
+  .code{font-size:13px;font-weight:800;letter-spacing:1.4px;color:var(--muted)}
+  h1{margin-top:12px;font-size:34px;font-weight:900;letter-spacing:-1.4px;line-height:1.25}
+  p{margin-top:14px;font-size:16px;line-height:1.8;color:var(--body);max-width:520px}
+  .links{margin-top:28px;display:flex;flex-wrap:wrap;gap:9px}
+  .btn{display:inline-flex;align-items:center;padding:10px 18px;border-radius:var(--r-pill);
+       font-size:14px;font-weight:700;text-decoration:none;background:var(--ink);color:var(--paper)}
+  .btn:hover{opacity:.88}
+  .btn.ghost{background:transparent;color:var(--body);border:1px solid var(--line)}
+  .btn.ghost:hover{color:var(--ink);border-color:var(--muted);opacity:1}
+
+  footer{border-top:1px solid var(--line);background:var(--paper)}
+  footer .wrap{padding-block:34px;font-size:13px;color:var(--muted);line-height:1.9}
+  footer .biz{display:flex;flex-wrap:wrap;gap:6px 14px}
+  footer .copy{margin-top:12px;font-size:12.5px;color:#A8A29E}
+
+  @media (max-width:760px){
+    .wrap{padding-inline:22px}
+    main .wrap{padding-block:64px}
+    h1{font-size:28px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <img src="/assets/brand/modusoft-logo-header-2.svg" alt="ModuSoft 모두소프트" width="135" height="34">
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="code">404</div>
+    <h1>페이지를 찾을 수 없습니다</h1>
+    <p>주소가 바뀌었거나 없는 페이지입니다. 주소를 다시 확인하시거나 아래에서 이동해 주세요.</p>
+    <div class="links">
+      <a class="btn" href="/">모두소프트 홈</a>
+      <a class="btn ghost" href="/jeomjeom/">점점</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="biz">
+      <span>모두소프트 (ModuSoft)</span>
+      <span>대표 신두식</span>
+      <span>사업자등록번호 458-12-02914</span>
+      <span>admin@modusoft.kr</span>
+    </div>
+    <div class="copy">© 2026 모두소프트 (ModuSoft). All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>

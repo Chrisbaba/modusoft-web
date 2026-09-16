@@ -17,15 +17,15 @@
 <!-- 🔴 og:image 가 없으면 카카오톡·슬랙이 페이지의 첫 큰 이미지(뭐무 카드 아이콘)를
      집어 «모두소프트 = 뭐무» 로 보인다. 1200×630 전용 이미지를 절대 URL 로 준다.
      바꾼 뒤에는 카카오 공유 디버거에서 캐시를 지워야 새 그림이 뜬다. -->
-<meta property="og:image" content="https://modusoft.kr/assets/og/modusoft.png">
+<meta property="og:image" content="https://modusoft.kr/assets/og/modusoft-v2.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/assets/favicon.ico" sizes="any">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="icon" href="/assets/brand/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/brand/favicon-192.png">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <style>
   /* 디자인 토큰 — mwomu.kr 랜딩(website/index.html)의 중립 5토큰을 그대로 가져왔다.
      🔴 강조색은 가져오지 않는다. 이 페이지는 «앱들이 서는 판» 이라서 자기 색이
@@ -56,9 +56,9 @@
          position:sticky;top:0;z-index:10}
   .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;
        min-height:62px;flex-wrap:wrap;padding-block:8px}
-  .brand{display:flex;align-items:center;gap:9px;text-decoration:none}
-  .brand img{width:26px;height:26px;border-radius:7px;display:block}
-  .brand b{font-size:18px;font-weight:900;letter-spacing:-.5px}
+  /* 로고는 글자까지 도형으로 바꾼 SVG 한 장이다 — 웹 폰트 없이 어느 기기에서나 같게 보인다. */
+  .brand{display:flex;align-items:center;text-decoration:none}
+  .brand img{height:34px;width:auto;display:block}
   .nav nav{display:flex;flex-wrap:wrap;gap:20px}
   .nav nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
   .nav nav a:hover{color:var(--ink)}
@@ -147,8 +147,7 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="/">
-      <img src="/assets/favicon-192.png" alt="" width="26" height="26">
-      <b>모두소프트</b>
+      <img src="/assets/brand/modusoft-logo-header.svg" alt="ModuSoft 모두소프트" width="135" height="34">
     </a>
     <nav>
       <a href="#apps">앱</a>
@@ -242,42 +241,6 @@
           <a class="btn" href="/jeomjeom/">소개 페이지</a>
           <a class="btn ghost" href="/jeomjeom/support/">지원</a>
         </div>
-      </article>
-
-      <article class="card">
-        <div class="top">
-          <div class="ico ph">링고</div>
-          <div>
-            <h3>모두링고</h3>
-            <div class="role">준비 중</div>
-          </div>
-        </div>
-        <p class="desc">아직 소개할 단계가 아닙니다. 준비되면 이 자리에 올립니다.</p>
-        <span class="badge wip">개발 중</span>
-      </article>
-
-      <article class="card">
-        <div class="top">
-          <div class="ico ph">피아</div>
-          <div>
-            <h3>모두피아</h3>
-            <div class="role">준비 중</div>
-          </div>
-        </div>
-        <p class="desc">아직 소개할 단계가 아닙니다. 준비되면 이 자리에 올립니다.</p>
-        <span class="badge wip">개발 중</span>
-      </article>
-
-      <article class="card">
-        <div class="top">
-          <div class="ico ph">SS</div>
-          <div>
-            <h3>StockSignal</h3>
-            <div class="role">준비 중</div>
-          </div>
-        </div>
-        <p class="desc">아직 소개할 단계가 아닙니다. 준비되면 이 자리에 올립니다.</p>
-        <span class="badge wip">개발 중</span>
       </article>
 
     </div>

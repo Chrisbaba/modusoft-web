@@ -19,6 +19,8 @@ modusoft.kr — 모두소프트 앱 소개 허브 (정적 사이트).
 
   원고의 정본은 앱 저장소 `jeomjeom/docs/WEB.md`·`docs/STORE_LISTING.md` 다. 방침 문장은
   앱 안 「개인정보 안내」 화면과 같은 사실을 말해야 한다(둘 중 하나만 고치지 않는다).
+- 로고·파비콘: 사이트용은 `assets/brand/`, 명함·문서용 원본(SVG·고해상도 PNG)은 `brand/` (사용 규칙은 `brand/README.md`).
+  `/assets/*` 는 1년 immutable 캐시라 로고를 다시 바꿀 때는 **파일 이름을 바꿔서** 올린다.
 - 배포: Cloudflare Pages (`main` 브랜치 푸시 → 자동 배포)
   - Framework preset: `None`
   - Build command: `exit 0`

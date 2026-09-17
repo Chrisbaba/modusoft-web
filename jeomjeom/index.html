@@ -13,7 +13,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://modusoft.kr/jeomjeom/">
 <meta property="og:title" content="점점 — 1탭으로 기록하는 두통 일기">
-<meta property="og:description" content="아플 때 버튼 하나. 한의원에 내는 표는 앱이 만들어요. 모든 기록은 기기 안에만.">
+<meta property="og:description" content="아플 때 버튼 하나. 한의원에 내는 표는 앱이 만들어요. 모든 기록은 이 폰 안에만.">
 <meta property="og:image" content="https://modusoft.kr/assets/og/jeomjeom.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -23,28 +23,29 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <style>
-  /* 루트(index.html)의 중립 토큰 + 점점의 세이지 한 가지. 앱 아이콘 그라디언트
-     (#2F8F80 → #5CBFA6, docs/BRAND.md)에서 가져왔다. 강도를 색으로 등급화하지
-     않는 앱이라 이 페이지에도 경보색은 없다. */
+  /* 구성은 뭐무(mwomu.kr)와 같다 — 장마다 실제 화면 한 장, 폰은 섹션 바닥에 붙는다.
+     색은 루트(index.html)의 중립 토큰 + 점점의 세이지. 앱 아이콘 그라디언트
+     (#2F8F80 → #5CBFA6, 앱 저장소 docs/BRAND.md)에서 가져왔다. 강도를 색으로 등급화하지
+     않는 앱이라 이 페이지에도 경보색은 없다 (잠금화면 그림의 주황 점은 앱 코드의 값 그대로다).
+     문구는 해요체, 개발 용어는 풀어 쓴다 (JSON → 백업 파일 등). 사실의 정본은 앱 저장소
+     docs/STORE_LISTING.md 와 앱 문자열이다 — 이 페이지만 고쳐서 새 기능을 말하지 않는다. */
   :root{
     --ink:#211D1A; --body:#57534E; --muted:#79716B; --line:#E7E5E4;
     --bg:#FCFCFB; --paper:#FFFFFF; --cream:#FAF8F6;
-    --jeomjeom:#2F8F80; --jeomjeom-deep:#1F6B60; --jeomjeom-soft:#E4F2EF;
+    --sage:#2F8F80; --sage-deep:#1F6B60; --sage-soft:#E4F2EF; --sage-line:#C9E3DC; --sage-on-ink:#9CC6B3;
     --r-md:12px; --r-lg:16px; --r-xl:22px; --r-pill:999px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,
+  body{font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,
                 'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
-    background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;
-  }
+       background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,p,li,span,a,div{word-break:keep-all;text-wrap:pretty}
+  a{color:var(--sage-deep)} a:hover{color:var(--ink)}
   img{max-width:100%}
-  a{color:inherit}
-  .wrap{max-width:1040px;margin:0 auto;padding-inline:40px}
+  .wrap{max-width:1120px;margin:0 auto;padding-inline:40px}
 
   header{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
-  .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;
-       min-height:62px;flex-wrap:wrap;padding-block:8px}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:62px;flex-wrap:wrap;padding-block:8px}
   /* 로고는 글자까지 도형으로 바꾼 SVG 한 장이다 — 웹 폰트 없이 어느 기기에서나 같게 보인다. */
   .brand{display:flex;align-items:center;text-decoration:none}
   .brand img{height:34px;width:auto;display:block}
@@ -52,64 +53,181 @@
   .nav nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
   .nav nav a:hover{color:var(--ink)}
 
-  .hero{background:linear-gradient(180deg,var(--cream) 0%,var(--bg) 100%);border-bottom:1px solid var(--line)}
-  .hero .wrap{padding-block:80px 68px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
-  .eyebrow{display:inline-flex;align-items:center;gap:7px;padding:6px 14px 6px 9px;
-           border-radius:var(--r-pill);background:var(--paper);border:1px solid var(--line);
-           font-size:12.5px;font-weight:700;color:var(--body)}
-  .eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--jeomjeom);display:block}
-  h1{margin-top:22px;font-size:46px;font-weight:900;letter-spacing:-2px;line-height:1.2}
-  .lede{margin-top:22px;font-size:17px;line-height:1.85;color:var(--body);max-width:560px}
-  .hero-ico{width:132px;height:132px;border-radius:30px;border:1px solid var(--line);display:block;
-            box-shadow:0 12px 32px rgba(33,29,26,.10)}
-  .status{margin-top:26px;display:flex;flex-wrap:wrap;gap:9px;align-items:center}
-  .badge{padding:5px 12px;border-radius:var(--r-pill);font-size:12.5px;font-weight:700;border:1px solid transparent}
-  .badge.soon{color:#8A6100;background:#FFF3D6;border-color:#F0DFAE}
-  .btn{display:inline-flex;align-items:center;gap:6px;padding:9px 15px;border-radius:var(--r-pill);
-       font-size:13.5px;font-weight:700;text-decoration:none;background:var(--ink);color:var(--paper)}
-  .btn:hover{opacity:.88}
-  .btn.ghost{background:transparent;color:var(--body);border:1px solid var(--line)}
-  .btn.ghost:hover{color:var(--ink);border-color:var(--muted);opacity:1}
+  /* ── 실제 앱 화면 ──────────────────────────────────────────────────
+     스토어 컷(앱 저장소 docs/store-assets/appstore-6.9-1320x2868/)에서 화면만 잘라 낸 것이
+     /assets/shots/jeomjeom/*.webp 다. 아래 변이 곧게 잘려 있어서 폰은 늘 섹션 바닥에 붙는다
+     (.chap 의 padding-bottom 0 + .art 의 align-self:flex-end).
+     🔴 재촬영하면 여기도 다시 자르고 **파일 이름 꼬리(-2026-09)를 바꾼다** — /assets/* 는 1년 immutable 캐시다. */
+  .shot{display:block;width:320px;max-width:100%;height:auto;filter:drop-shadow(0 20px 36px rgba(33,29,26,.20))}
+  .onink .shot{filter:drop-shadow(0 0 1px rgba(255,255,255,.28)) drop-shadow(0 18px 40px rgba(0,0,0,.5))}
 
-  section .wrap{padding-block:64px}
-  .sec-head h2{font-size:13px;font-weight:800;letter-spacing:1.4px;color:var(--muted);text-transform:uppercase}
-  .sec-head p{margin-top:10px;font-size:26px;font-weight:800;letter-spacing:-1px}
-  .grid{margin-top:30px;display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));align-items:start}
-  .f{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-xl);padding:24px;border-top:3px solid var(--jeomjeom)}
-  .f .n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;
-        background:var(--jeomjeom-soft);color:var(--jeomjeom-deep);font-weight:900;font-size:14px}
-  .f h3{margin-top:14px;font-size:18px;font-weight:800;letter-spacing:-.5px}
-  .f p{margin-top:10px;font-size:14.5px;line-height:1.75;color:var(--body)}
+  .hero{background:linear-gradient(178deg,var(--cream) 0%,#F6FAF8 55%,var(--bg) 100%);overflow:hidden}
+  .hero .cols{display:flex;gap:56px;align-items:center;padding-top:58px}
+  .hero .copy{flex:1;min-width:0;padding-bottom:58px}
+  .hero .art{flex:none;align-self:flex-end}
+  .hero .shot{width:340px}
+  .eyebrow{display:inline-flex;align-items:center;gap:7px;padding:6px 13px 6px 8px;border-radius:var(--r-pill);
+           background:var(--paper);border:1px solid var(--sage-line);font-size:12.5px;font-weight:700;color:var(--sage-deep)}
+  .eyebrow i{display:block;width:6px;height:6px;border-radius:50%;background:var(--sage)}
+  h1{margin-top:20px;font-size:54px;font-weight:900;letter-spacing:-2.4px;line-height:1.18}
+  h1 em{font-style:normal;color:var(--sage)}
+  .lede{margin-top:20px;font-size:17px;line-height:1.8;color:var(--body);max-width:460px}
+  .lede b{color:var(--ink);font-weight:700}
+  .status{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .soon{padding:6px 13px;border-radius:var(--r-pill);font-size:13px;font-weight:700;color:#8A6100;background:#FFF3D6;border:1px solid #F0DFAE}
+  .jump{display:inline-flex;align-items:center;gap:7px;margin-top:20px;font-size:15px;font-weight:800;color:var(--sage-deep);
+        text-decoration:none;border-bottom:2px solid var(--sage-line);padding-bottom:3px}
+  .shotnote{margin-top:22px;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--body)}
+  .shotnote i{flex:none;display:block;width:7px;height:7px;border-radius:50%;background:var(--sage)}
 
-  .promise{background:var(--ink);color:#F5F3F1}
-  .promise .wrap{padding-block:60px}
-  .promise h2{font-size:26px;font-weight:800;letter-spacing:-1px;color:var(--paper)}
-  .promise ul{margin-top:18px;padding-left:0;list-style:none;display:grid;gap:10px;max-width:640px}
-  .promise li{font-size:15.5px;line-height:1.75;color:#C4BDB6;padding-left:22px;position:relative}
-  .promise li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:9px;border-radius:50%;background:var(--jeomjeom)}
-  .promise .links{margin-top:26px;display:flex;flex-wrap:wrap;gap:9px}
-  .promise .btn{background:var(--paper);color:var(--ink)}
-  .promise .btn.ghost{background:transparent;color:#F5F3F1;border-color:#6B625B}
+  /* sticky 헤더가 앵커 착지점을 덮지 않게 한다 (뭐무 페이지와 같은 이유). */
+  section{padding:84px 0;scroll-margin-top:76px}
+  section.chap{padding:88px 0 0;overflow:hidden}
+  .kicker{font-size:12px;font-weight:800;letter-spacing:1.6px;color:var(--sage-deep)}
+  h2{margin-top:12px;font-size:36px;font-weight:900;letter-spacing:-1.5px;line-height:1.28}
+  .sub{margin-top:14px;font-size:16px;line-height:1.8;color:var(--muted);max-width:500px}
+  .sub b{color:var(--ink);font-weight:700}
+  .two{display:flex;gap:72px;align-items:center}
+  .two.rev{flex-direction:row-reverse}
+  .two .copy{flex:1;min-width:0;padding-bottom:88px}
+  .two .art{flex:none;align-self:flex-end}
+  .pair{display:flex;gap:24px;align-items:flex-start}
+  .pair figure{flex:none;width:280px}
+  .pair .shot{width:280px}
+  .pair figcaption{margin-bottom:14px;font-size:13px;font-weight:700;color:var(--body)}
+  .pts{list-style:none;margin-top:26px;display:flex;flex-direction:column;gap:14px;max-width:480px}
+  .pts li{position:relative;padding-left:30px;font-size:15px;line-height:1.75;color:var(--body)}
+  .pts li::before{content:"";position:absolute;left:2px;top:7px;width:12px;height:12px;border-radius:50%;border:3px solid var(--sage)}
+  .pts li b{color:var(--ink);font-weight:700}
 
-  .note{font-size:13.5px;color:var(--muted);margin-top:26px;max-width:640px;line-height:1.75}
+  .inksec{background:var(--ink)}
+  .onink h2{color:#fff}
+  .onink .kicker{color:var(--sage-on-ink)}
+  .onink .sub{color:rgba(255,255,255,.66)} .onink .sub b{color:#fff}
+  .onink .pts li{color:rgba(255,255,255,.78)} .onink .pts li b{color:#fff}
+  .onink .pts li::before{border-color:var(--sage-on-ink)}
+
+  .how{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .how .row{display:flex;gap:20px;align-items:stretch;padding:44px 0}
+  .how .step{flex:1;display:flex;gap:14px;align-items:flex-start}
+  .how .n{flex:none;width:34px;height:34px;border-radius:var(--r-md);background:var(--sage-soft);color:var(--sage-deep);
+          display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+  .how .t{font-size:15.5px;font-weight:800;letter-spacing:-.4px}
+  .how .d{margin-top:4px;font-size:13.5px;color:var(--muted);line-height:1.65}
+  .how .sep{flex:none;width:1px;background:var(--line)}
+
+  #promise{background:var(--cream);padding:78px 0}
+  #promise .sub{color:var(--body)}
+  .cards{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:34px}
+  .cards li{background:var(--paper);border:1px solid var(--sage-line);border-radius:var(--r-lg);padding:22px 24px}
+  .cards .h{display:flex;align-items:center;gap:10px}
+  .cards .ic{flex:none;width:26px;height:26px;border-radius:50%;background:var(--sage-soft);color:var(--sage-deep);
+             display:flex;align-items:center;justify-content:center}
+  .cards .t{font-size:16.5px;font-weight:800;letter-spacing:-.4px}
+  .cards .d{margin-top:9px;padding-left:36px;font-size:13.5px;color:var(--body);line-height:1.7}
+  .disclaim{margin-top:26px;font-size:13.5px;color:var(--body);line-height:1.75}
+
+  .more{display:flex;gap:40px;align-items:baseline}
+  .more .lbl{flex:none;width:180px}
+  .more .lbl b{font-size:19px;font-weight:900;letter-spacing:-.7px}
+  .more .lbl span{display:block;margin-top:6px;font-size:13px;color:var(--muted);line-height:1.65}
+  .more .body{flex:1;font-size:14.5px;line-height:2.1;color:var(--body)}
+  .more .body b{color:var(--ink);font-weight:700}
+
+  .close{background:var(--sage-deep);padding:76px 0;text-align:center;color:#fff}
+  .close .when{font-size:13px;font-weight:800;letter-spacing:1.4px;color:#D5ECE4}
+  .close h2{margin-top:14px;font-size:40px;color:#fff;letter-spacing:-1.7px}
+  .close p{margin:16px auto 0;max-width:520px;font-size:16px;line-height:1.8;color:#fff}
+  .close .links{margin-top:28px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:var(--r-pill);font-size:14px;font-weight:700;text-decoration:none}
+  .btn.light{background:#fff;color:var(--sage-deep)}
+  .btn.line{border:1px solid rgba(255,255,255,.5);color:#fff}
+  .close .free{margin-top:22px;font-size:13.5px;font-weight:700;color:#fff}
 
   footer{border-top:1px solid var(--line);background:var(--paper)}
   footer .wrap{padding-block:34px;font-size:13px;color:var(--muted);line-height:1.9}
-  footer .biz{display:flex;flex-wrap:wrap;gap:6px 14px}
-  footer .links{margin-top:8px;display:flex;flex-wrap:wrap;gap:14px}
-  footer .links a{text-decoration:none}
-  footer .links a:hover{color:var(--ink)}
+  footer .biz,footer .links{display:flex;flex-wrap:wrap;gap:6px 14px}
+  footer .links{margin-top:8px}
+  footer .links a{color:var(--muted);text-decoration:none}
   footer .copy{margin-top:12px;font-size:12.5px;color:#A8A29E}
 
-  @media (max-width:760px){
-    .wrap{padding-inline:22px}
-    .hero .wrap{padding-block:52px 44px;grid-template-columns:1fr}
-    .hero-ico{width:84px;height:84px;border-radius:20px;order:-1}
-    h1{font-size:33px;letter-spacing:-1.4px}
-    .lede{font-size:15.5px;margin-top:18px}
-    section .wrap{padding-block:48px}
-    .sec-head p{font-size:21px}
-    .grid{grid-template-columns:1fr}
+
+  /* ── 잠금화면 · 다이내믹 아일랜드 ─────────────────────────────────────
+     캡처가 아니라 앱 저장소 ios/JeomjeomLiveActivity/JeomjeomLiveActivity.swift 의 색·크기·문구를
+     옮겨 그린 그림이다. 스토어 후보 컷(docs/store-assets/live-activity/)과 같은 장면이다.
+     🔴 잠금화면에서는 섬에 활동이 뜨지 않는다 — 그래서 잠금화면 그림의 섬은 빈 카메라 자리다. */
+  .lock{position:relative;width:280px;height:540px;border-radius:44px 44px 0 0;overflow:hidden;
+        background:linear-gradient(172deg,#324E46 0%,#28403A 25%,#1B2825 55%,#131A1B 80%,#0F1315 100%);
+        border:1px solid #2A3034;border-bottom:0;box-shadow:0 20px 36px rgba(33,29,26,.20);
+        display:flex;flex-direction:column;align-items:center;font-family:-apple-system,'SF Pro Text','Apple SD Gothic Neo','Noto Sans KR',sans-serif}
+  .isl{margin-top:12px;height:34px;border-radius:17px;background:#000;display:flex;align-items:center;justify-content:space-between;
+       padding:0 14px 0 14px;gap:10px;width:188px}
+  .dot{flex:none;position:relative;width:8px;height:8px;border-radius:50%;background:#F4622E}
+  .dot::before{content:"";position:absolute;inset:-4.4px;border-radius:50%;
+               background:radial-gradient(closest-side,rgba(244,98,46,.42) 48%,rgba(244,98,46,0) 100%);z-index:-1}
+  .dot.lg{width:10px;height:10px} .dot.lg::before{inset:-5.5px}
+  .isl .l{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:#F4622E;position:relative;z-index:0}
+  .isl .r{font-size:11px;color:#7FA99B;font-variant-numeric:tabular-nums;width:44px;text-align:center}
+  .lk-date{margin-top:30px;font-size:15px;font-weight:600;color:rgba(255,255,255,.85)}
+  .lk-time{font-size:78px;font-weight:700;line-height:1;letter-spacing:-2px;color:rgba(255,255,255,.92)}
+  .la{margin-top:auto;margin-bottom:26px;width:252px;background:#14181A;border-radius:22px;padding:16px;
+      display:flex;align-items:center;gap:12px;position:relative;z-index:0}
+  .la .mid{flex:1;min-width:0}
+  .la .top{display:flex;align-items:baseline;gap:6px}
+  .la .ttl{font-size:16px;font-weight:700;color:#E4E2DC}
+  .la .det{font-size:14px;color:#A2AAA6}
+  .el{display:flex;align-items:baseline;gap:4px;margin-top:2px}
+  .el b{font-size:20px;font-weight:400;color:#7FA99B;font-variant-numeric:tabular-nums}
+  .el span{font-size:11px;color:#A2AAA6}
+  .end{flex:none;width:64px;height:32px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+       font-size:14px;font-weight:700;color:#7FA99B;background:rgba(127,169,155,.18);border:1px solid rgba(127,169,155,.55)}
+  .isl-x{margin-top:10px;width:256px;border-radius:40px;background:#000;padding:16px 18px 16px;position:relative;z-index:0}
+  .isl-x .row1{display:flex;justify-content:space-between;align-items:center}
+  .isl-x .l{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:#E4E2DC}
+  .isl-x .det{font-size:14px;color:#A2AAA6}
+  .isl-x .row2{margin-top:12px;display:flex;justify-content:space-between;align-items:center}
+  .isl.empty{width:80px;padding:0}
+  .isl.wide{width:188px}
+  .hint{margin-top:118px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.72)}
+  .lock .isl-x{margin-top:10px}
+  .illnote{margin-top:22px;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--body)}
+  .illnote i{flex:none;display:block;width:7px;height:7px;border-radius:50%;background:var(--sage)}
+  @media (max-width:640px){ .pair .lock{width:240px;height:480px} .pair .la{width:216px;padding:13px;gap:9px} .pair .isl-x{width:224px} .pair .lk-time{font-size:66px} .pair .end{width:54px} }
+
+  @media (max-width:980px){
+    .wrap{padding-inline:24px}
+    .hero .cols{flex-direction:column;align-items:center;gap:36px;padding-top:44px}
+    .hero .copy{display:flex;flex-direction:column;align-items:center;text-align:center;padding-bottom:0}
+    .hero .art{align-self:center}
+    .hero .shot{width:300px}
+    section.chap{padding-top:64px}
+    .two,.two.rev{flex-direction:column;align-items:stretch;gap:40px}
+    .two .copy{padding-bottom:0}
+    .two .art{align-self:center;max-width:100%}
+    .how .row{flex-direction:column;gap:20px}
+    .how .sep{display:none}
+    .more{flex-direction:column;gap:14px}
+    .more .lbl{width:auto}
+  }
+  @media (max-width:720px){ .cards{grid-template-columns:1fr} }
+  @media (max-width:640px){
+    .pair{overflow-x:auto;gap:16px;margin-inline:-24px;padding-inline:24px;scrollbar-width:none}
+    .pair figure{width:240px} .pair .shot{width:240px}
+    .two .art.pairbox{align-self:stretch}
+  }
+  @media (max-width:600px){
+    section{padding:52px 0;scroll-margin-top:124px} #promise{padding:56px 0}
+    section.chap{padding-top:52px}
+    .two,.two.rev{gap:32px}
+    .hero .cols{padding-top:36px;gap:32px}
+    .hero .shot,.shot{width:272px}
+    h1{font-size:34px;letter-spacing:-1.6px}
+    h2{font-size:26px;letter-spacing:-1.1px}
+    .close h2{font-size:27px;letter-spacing:-1.2px}
+    .lede{font-size:15px} .sub{font-size:14.5px} .pts li{font-size:14px}
+    .nav nav{width:100%;gap:16px;row-gap:6px}
+    .nav nav a{font-size:13px}
+    .shotnote,.status{justify-content:center}
   }
 </style>
 </head>
@@ -117,9 +235,7 @@
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="/">
-      <img src="/assets/brand/modusoft-logo-header-2.svg" alt="ModuSoft 모두소프트" width="135" height="34">
-    </a>
+    <a class="brand" href="/"><img src="/assets/brand/modusoft-logo-header-2.svg" alt="ModuSoft 모두소프트" width="135" height="34"></a>
     <nav>
       <a href="#features">기능</a>
       <a href="/jeomjeom/terms/">이용약관</a>
@@ -129,106 +245,212 @@
   </div>
 </header>
 
-<div class="hero">
-  <div class="wrap">
-    <div>
-      <span class="eyebrow"><i></i>두통 기록 · iOS · Android</span>
-      <h1>아플 때 버튼 하나.<br>기록은 3초면 끝나요.</h1>
-      <p class="lede">
-        점점은 두통을 하루에도 여러 번 겪는 사람을 위한 기록 앱입니다.
-        한 번 아플 때 폰을 드는 시간이 3초를 넘지 않도록 만들었고,
-        한의원에 내는 「생활패턴분석표」는 앱이 그대로 PDF로 만듭니다.
-      </p>
-      <!-- 🔴 스토어 배지는 심사 승인 뒤에 건다. 누를 수 있게 생긴 것이 404 면
-           죽은 링크보다 나쁘다 (루트의 뭐무 카드와 같은 규칙). -->
-      <div class="status">
-        <span class="badge soon">스토어 출시 준비 중</span>
-        <a class="btn ghost" href="/jeomjeom/support/">지원 · 자주 묻는 질문</a>
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div class="cols">
+        <div class="copy">
+          <span class="eyebrow"><i></i>두통 기록 앱 · iPhone · Android</span>
+          <h1>아플 때 버튼 하나.<br><em>3초면 기록돼요</em></h1>
+          <p class="lede">하루에도 여러 번 머리가 아픈 사람을 위해 만들었어요. <b>아픈 쪽 버튼만 누르면</b> 시각이 남고, 한의원에 내는 표는 앱이 대신 만들어요.</p>
+          <!-- 🔴 스토어 배지는 심사 승인 뒤에 건다. 누를 수 있게 생긴 것이 404 면
+               죽은 링크보다 나쁘다 (루트의 앱 카드와 같은 규칙). 닫는 판의 «출시 준비 중» 도 함께 바꾼다. -->
+          <div class="status"><span class="soon">스토어 출시 준비 중</span></div>
+          <a class="jump" href="#how">어떻게 쓰는지 보기 <span aria-hidden="true">↓</span></a>
+          <p class="shotnote"><i></i>앱 화면은 실제 캡처예요 · 만들어 넣은 예시 기록</p>
+        </div>
+        <div class="art"><img class="shot" src="/assets/shots/jeomjeom/01-home-2026-09.webp" width="640" height="1278" fetchpriority="high" alt="점점 홈 화면. 왼쪽·양쪽·오른쪽 버튼과 오늘의 두통 기록."></div>
       </div>
     </div>
-    <img class="hero-ico" src="/assets/icons/jeomjeom-192.png" alt="점점 앱 아이콘" width="132" height="132">
   </div>
-</div>
 
-<section id="features">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Features</h2>
-      <p>기록하고, 세고, 보여줍니다</p>
+  <div class="how" id="how">
+    <div class="wrap">
+      <div class="row">
+        <div class="step"><div class="n">1</div><div><div class="t">아픈 쪽을 눌러요</div><div class="d">왼쪽 · 양쪽 · 오른쪽 중 하나. 몇 시에 어디가 아팠는지 남아요.</div></div></div>
+        <div class="sep"></div>
+        <div class="step"><div class="n">2</div><div><div class="t">얼마나 아픈지 골라요</div><div class="d">1부터 10까지 숫자 하나. 괜찮아지면 「끝」을 눌러요.</div></div></div>
+        <div class="sep"></div>
+        <div class="step"><div class="n">3</div><div><div class="t">한의원에 표를 내요</div><div class="d">7일치 기록이 「생활패턴분석표」 모양 그대로 PDF가 돼요.</div></div></div>
+      </div>
     </div>
-    <div class="grid">
-      <article class="f">
-        <span class="n">1</span>
-        <h3>3초 기록</h3>
-        <p>아픈 쪽(왼쪽·양쪽·오른쪽) 버튼 하나면 시각과 부위가 저장됩니다.
-           바로 아래에서 강도(1~10)를 고르고, 끝날 때 「끝」을 누르면 지속시간이 남습니다.
-           iPhone 잠금화면에서도 「끝」을 누를 수 있습니다.</p>
-      </article>
-      <article class="f">
-        <span class="n">2</span>
-        <h3>생활 기록</h3>
-        <p>기상·취침 시각, 아침·점심·저녁, 그날의 특이사항과 약 복용을 같은 화면에서 적습니다.
-           자주 쓰는 표현은 칩으로 등록해 두고 한 번에 넣습니다.</p>
-      </article>
-      <article class="f">
-        <span class="n">3</span>
-        <h3>한의원 제출용 주간 리포트</h3>
-        <p>7일치 기록을 「생활패턴분석표」 양식 그대로 PDF로 만듭니다.
-           손으로 옮겨 적던 일을 없애는 것이 이 앱을 만든 이유입니다.</p>
-      </article>
-      <article class="f">
-        <span class="n">4</span>
-        <h3>처음과 최근 비교</h3>
-        <p>처음 4주와 최근 4주(또는 8주·전체)를 하루 평균 두통 횟수, 시간 합계, 평균 강도로 비교합니다.
-           일별·주차별·월별 추이와 부위·시간대·요일 분포를 차트와 표로 봅니다.</p>
-      </article>
-      <article class="f">
-        <span class="n">5</span>
-        <h3>기존 기록 가져오기</h3>
-        <p>텍스트로 적어 두던 기록을 그대로 불러옵니다. JSON·엑셀로 내보내고, JSON 백업으로 되살릴 수 있습니다.</p>
-      </article>
-      <article class="f">
-        <span class="n">6</span>
-        <h3>알림</h3>
-        <p>빠진 기록을 알려 주는 하루 한 번 알림을 켤 수 있습니다. 기기 안에서만 울리는 알림입니다.</p>
-      </article>
-    </div>
-    <p class="note">점점은 기록된 내용을 정리해 보여줄 뿐 진단이 아닙니다. 몸 상태에 대한 판단은 의료 전문가와 하세요.</p>
   </div>
-</section>
 
-<section class="promise">
-  <div class="wrap">
-    <h2>모든 기록은 이 기기에만</h2>
-    <ul>
-      <li>회원가입도 서버도 없습니다. 기록은 어디로도 전송되지 않습니다.</li>
-      <li>분석 도구, 광고, 크래시 리포터가 없습니다. 비행기 모드에서도 전부 동작합니다.</li>
-      <li>OS 클라우드 백업에서도 제외됩니다. 백업은 설정에서 파일로 직접 내보냅니다.</li>
-    </ul>
-    <div class="links">
-      <!-- 순서는 어디서나 이용약관 → 개인정보처리방침 → 지원(상단 메뉴·푸터와 같다).
-           이 단락은 데이터 약속이라 방침 쪽을 채운 버튼으로 둔다. -->
-      <a class="btn ghost" href="/jeomjeom/terms/">이용약관</a>
-      <a class="btn" href="/jeomjeom/privacy/">개인정보처리방침</a>
-      <a class="btn ghost" href="mailto:admin@modusoft.kr">admin@modusoft.kr</a>
+  <section id="features" class="chap" style="background:var(--bg)">
+    <div class="wrap">
+      <div class="two rev">
+        <div class="copy">
+          <div class="kicker">01 · 기록</div>
+          <h2>강도는 바로 아래에서,<br>끝날 때 「끝」 한 번</h2>
+          <p class="sub">아플 때는 폰을 오래 들고 있기 어려워요. 그래서 <b>누르는 횟수를 세 번</b>으로 줄였어요.</p>
+          <ul class="pts">
+            <li>버튼을 누르는 순간 <b>시각과 아픈 쪽</b>이 저장돼요. 자세한 내용은 나중에 눌러서 고치면 돼요.</li>
+            <li>아픈 정도는 <b>1부터 10까지</b> 숫자 하나로 골라요.</li>
+            <li>괜찮아지면 「끝」 — <b>얼마나 오래 아팠는지</b>가 저절로 계산돼요.</li>
+          </ul>
+        </div>
+        <div class="art"><img class="shot" src="/assets/shots/jeomjeom/02-home-intensity-2026-09.webp" width="640" height="1278" loading="lazy" decoding="async" alt="강도를 고르는 화면. 진행 중인 두통 아래 1부터 10까지 숫자와 「끝」 버튼."></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="chap" style="background:var(--paper)">
+    <div class="wrap">
+      <div class="two">
+        <div class="copy">
+          <div class="kicker">02 · 잠금화면 · 다이내믹 아일랜드</div>
+          <h2>화면을 꺼도<br>「끝」은 잠금화면에서</h2>
+          <p class="sub">기록해 두고 깜빡 잊으면 두통 하나가 몇 시간짜리로 남아요. 그래서 <b>진행 중인 기록이 잠금화면에 계속 떠 있어요.</b></p>
+          <ul class="pts">
+            <li>잠금화면에 <b>진행중 · 아픈 쪽 · 강도</b>와 <b>지난 시간</b>이 보여요. 시간은 인터넷 없이 폰이 직접 세요.</li>
+            <li>괜찮아지면 잠금화면의 <b>「끝」</b>을 눌러요. 앱이 잠깐 열리면서 기록이 마무리돼요.</li>
+            <li>다이내믹 아일랜드가 있는 iPhone은 화면 위 섬에도 떠요. 길게 누르면 펼쳐지고, <b>스치기만 해서는 끝나지 않아요</b> — 끝내는 건 「끝」 버튼뿐이에요.</li>
+          </ul>
+          <p class="illnote"><i></i>iOS 16.2 이상 · 이 두 그림은 실제 모양을 옮겨 그린 거예요</p>
+        </div>
+        <div class="art pairbox">
+          <div class="pair">
+            <figure>
+              <figcaption>잠금화면</figcaption>
+              <div class="lock" role="img" aria-label="잠금화면 아래에 진행중 · 왼쪽 · 6, 12:08 경과, 끝 버튼이 있는 검은 배너.">
+                <div class="isl empty"></div>
+                <div class="lk-date">9월 17일 목요일</div>
+                <div class="lk-time">9:41</div>
+                <div class="la">
+                  <span class="dot lg"></span>
+                  <div class="mid">
+                    <div class="top"><span class="ttl">진행중</span><span class="det">왼쪽 · 6</span></div>
+                    <div class="el"><b>12:08</b><span>경과</span></div>
+                  </div>
+                  <span class="end">끝</span>
+                </div>
+              </div>
+            </figure>
+            <figure>
+              <figcaption>다이내믹 아일랜드</figcaption>
+              <div class="lock" role="img" aria-label="화면 위 검은 섬에 진행중과 12:08. 길게 누르면 펼쳐져 왼쪽 · 6, 12:08 경과와 끝 버튼이 보인다.">
+                <div class="isl wide"><span class="l"><span class="dot"></span>진행중</span><span class="r">12:08</span></div>
+                <div class="hint">길게 누르면</div>
+                <div class="isl-x">
+                  <div class="row1"><span class="l"><span class="dot"></span>진행중</span><span class="det">왼쪽 · 6</span></div>
+                  <div class="row2"><div class="el"><b>12:08</b><span>경과</span></div><span class="end">끝</span></div>
+                </div>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="chap" style="background:var(--bg)">
+    <div class="wrap">
+      <div class="two rev">
+        <div class="copy">
+          <div class="kicker">03 · 통계</div>
+          <h2>처음과 최근을<br>숫자로 비교해요</h2>
+          <p class="sub">좋아졌는지 느낌만으로는 말하기 어려워요. <b>쌓인 기록이 숫자로</b> 보여 줘요.</p>
+          <ul class="pts">
+            <li>처음 4주와 최근 4주를 <b>하루에 몇 번 · 모두 몇 분 · 얼마나 세게</b>로 나란히 놓아요. 8주나 전체로도 바꿔 봐요.</li>
+            <li>날마다 · 주마다 · 달마다 <b>어떻게 달라졌는지</b> 그래프로 넘겨 봐요.</li>
+            <li>어느 쪽이, 몇 시에, 무슨 요일에 많이 아팠는지도 보여요.</li>
+          </ul>
+        </div>
+        <div class="art pairbox">
+          <div class="pair">
+            <figure><figcaption>처음 4주와 최근 4주</figcaption><img class="shot" src="/assets/shots/jeomjeom/03-stats-2026-09.webp" width="640" height="1278" loading="lazy" decoding="async" alt="통계 화면의 처음과 최근 비교. 하루 평균 두통 11.3회에서 6.6회."></figure>
+            <figure><figcaption>주마다 어떻게 달라졌나</figcaption><img class="shot" src="/assets/shots/jeomjeom/04-stats-trend-2026-09.webp" width="640" height="1278" loading="lazy" decoding="async" alt="주차별 그래프 셋. 하루 평균 횟수, 두통 시간 합계, 평균 강도."></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chap" style="background:var(--paper)">
+    <div class="wrap">
+      <div class="two">
+        <div class="copy">
+          <div class="kicker">04 · 캘린더</div>
+          <h2>한 달이<br>한눈에</h2>
+          <p class="sub">자주 아픈 날일수록 칸이 진해져요. 아픈 정도가 아니라 <b>아픈 횟수</b>로 칠해요.</p>
+          <ul class="pts">
+            <li>달마다 <b>하루 평균 몇 번, 며칠 기록했는지</b>가 함께 적혀요.</li>
+            <li>한 주 · 2주 · 한 달 보기로 바꾸고, 지난달도 이어서 내려 봐요.</li>
+            <li><b>치료 · 상담 · 약 먹은 날</b>이 따로 표시돼요.</li>
+          </ul>
+        </div>
+        <div class="art"><img class="shot" src="/assets/shots/jeomjeom/05-calendar-2026-09.webp" width="640" height="1278" loading="lazy" decoding="async" alt="캘린더 화면. 7월과 8월 날짜 칸이 그날 두통 횟수에 따라 진하기가 다르다."></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chap onink inksec">
+    <div class="wrap">
+      <div class="two rev">
+        <div class="copy">
+          <div class="kicker">05 · 한의원 제출용 리포트</div>
+          <h2>한의원 양식 그대로<br>PDF로 만들어요</h2>
+          <p class="sub">손으로 옮겨 적던 일을 없애는 것. <b>이 앱을 만든 이유예요.</b></p>
+          <ul class="pts">
+            <li>7일치 기록이 <b>「생활패턴분석표」</b> 모양 그대로 표가 돼요. 일어난 시각 · 잠든 시각과 두통이 날짜별로 들어가요.</li>
+            <li>내기 전에 <b>비어 있는 칸</b>부터 알려 줘요. 칸을 누르면 그날로 가서 채워요.</li>
+            <li>종이 양식처럼 <b>가로</b>로, 폰이나 메신저로 보기 편하게 <b>세로</b>로 골라 만들어요.</li>
+          </ul>
+        </div>
+        <div class="art"><img class="shot" src="/assets/shots/jeomjeom/06-report-2026-09.webp" width="640" height="1278" loading="lazy" decoding="async" alt="주간 리포트 화면. 9월 6일부터 12일까지 표와 「채울 곳 2군데」 안내."></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="promise">
+    <div class="wrap">
+      <div style="max-width:640px">
+        <div class="kicker">약속</div>
+        <h2>기록은 이 폰 밖으로<br>나가지 않아요</h2>
+        <p class="sub">두통 기록은 남에게 보여 줄 이유가 없는 정보예요. 그래서 처음부터 보낼 곳을 만들지 않았어요.</p>
+      </div>
+      <ul class="cards">
+        <li><div class="h"><span class="ic"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8.5l3 3 7-7"></path></svg></span><span class="t">가입하지 않아요</span></div>
+            <div class="d">이메일도 비밀번호도 묻지 않아요. 모두소프트도 여러분의 기록을 볼 수 없어요.</div></li>
+        <li><div class="h"><span class="ic"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8.5l3 3 7-7"></path></svg></span><span class="t">인터넷 없이 전부 돼요</span></div>
+            <div class="d">비행기 모드에서도 똑같이 써요. 기록이 어디로도 보내지지 않아요.</div></li>
+        <li><div class="h"><span class="ic"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8.5l3 3 7-7"></path></svg></span><span class="t">광고도, 몰래 모으는 장치도 없어요</span></div>
+            <div class="d">앱을 어떻게 쓰는지 수집하는 도구나 광고를 넣지 않았어요.</div></li>
+        <li><div class="h"><span class="ic"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8.5l3 3 7-7"></path></svg></span><span class="t">아이클라우드 · 구글 백업에도 안 올라가요</span></div>
+            <div class="d">폰을 바꿀 때는 설정에서 백업 파일을 직접 만들어 옮겨요.</div></li>
+      </ul>
+      <p class="disclaim">점점은 적은 기록을 정리해 보여 줄 뿐, 병을 진단하지 않아요. 몸 상태는 한의사 · 의사와 이야기하세요. 자세한 내용은 <a href="/jeomjeom/privacy/">개인정보처리방침</a>에 있어요.</p>
+    </div>
+  </section>
+
+  <div style="background:var(--bg);padding:56px 0">
+    <div class="wrap">
+      <div class="more">
+        <div class="lbl"><b>그 밖에</b><span>전부 선택이라,<br>안 써도 기록에는 지장이 없어요.</span></div>
+        <div class="body">
+          <b>생활 기록</b>(일어난 시각 · 잠든 시각 · 아침 · 점심 · 저녁) · <b>그날 있었던 일</b> · <b>약 먹은 기록</b> ·
+          <b>자주 쓰는 말</b>은 버튼으로 저장 · <b>메모장에 적어 둔 기록 불러오기</b> · <b>엑셀 파일로 꺼내기</b> ·
+          <b>백업 파일로 저장하고 되살리기</b> · <b>빠진 기록 알림</b>(하루 한 번) · <b>어두운 화면</b> · <b>iPad</b>
+        </div>
+      </div>
     </div>
   </div>
-</section>
+
+  <div class="close">
+    <div class="wrap">
+      <div class="when">스토어 출시 준비 중</div>
+      <h2>아플 때는 버튼 하나만</h2>
+      <p>강도도, 「끝」도, 생활 기록도 나중에 채워도 돼요. 기록이 귀찮아지는 순간 아무도 안 쓰게 되니까요.</p>
+      <div class="links"><a class="btn light" href="/jeomjeom/support/">자주 묻는 질문</a><a class="btn line" href="mailto:admin@modusoft.kr">admin@modusoft.kr</a></div>
+      <div class="free">지금은 유료 기능이 없어요.</div>
+    </div>
+  </div>
+</main>
 
 <footer>
   <div class="wrap">
-    <div class="biz">
-      <span>모두소프트 (ModuSoft)</span>
-      <span>대표 신두식</span>
-      <span>사업자등록번호 458-12-02914</span>
-      <span>admin@modusoft.kr</span>
-    </div>
-    <div class="links">
-      <a href="/">모두소프트</a>
-      <a href="/jeomjeom/terms/">이용약관</a>
-      <a href="/jeomjeom/privacy/">개인정보처리방침</a>
-      <a href="/jeomjeom/support/">지원</a>
-    </div>
+    <div class="biz"><span>모두소프트 (ModuSoft)</span><span>대표 신두식</span><span>사업자등록번호 458-12-02914</span><span>admin@modusoft.kr</span></div>
+    <div class="links"><a href="/">모두소프트</a><a href="/jeomjeom/terms/">이용약관</a><a href="/jeomjeom/privacy/">개인정보처리방침</a><a href="/jeomjeom/support/">지원</a></div>
     <div class="copy">© 2026 모두소프트 (ModuSoft). All rights reserved.</div>
   </div>
 </footer>

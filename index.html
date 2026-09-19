@@ -131,6 +131,11 @@
               align-items:flex-start;gap:12px}
   .links{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
   .links img{height:40px;display:block}
+  /* 아직 안 열린 스토어 자리 — 🔴 배지 아트워크를 회색으로 깔지 않는다. 그건 여전히
+     버튼 모양이라 «왜 안 눌리지» 를 남기고, 두 회사 배지 가이드도 아트워크 변형을 막는다.
+     글자 한 줄이면 누를 것이 없다는 사실이 모양으로 드러난다.
+     --body on --paper = 7.63:1 (실측). 카드 판이 흰색뿐이라 짝 색이 없다. */
+  .pending{font-size:13.5px;font-weight:700;color:var(--body)}
   .more{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:700;
         color:var(--body);text-decoration:none}
   .more:hover{color:var(--ink)}
@@ -234,12 +239,17 @@
 
     <div class="apps">
 
-      <!-- 뭐무 — 🔴 App Store 링크는 심사 승인 후 확정된다. 그 전까지 배지를 걸지 않는다
-           (누를 수 있게 생긴 것이 404 면 죽은 링크보다 나쁘다). -->
+      <!-- 뭐무 — App Store 출시(2026-09-19, id 6801053838). 배지 구조는 CarSave 카드와 같다.
+           🔴 Google Play 는 아직 검토 중이라 **배지를 안 건다** — 누를 수 있게 생긴 것이 404 면
+              죽은 링크보다 나쁘다(이 카드가 2026-09-19 까지 지켜 온 규칙). 그래서 그 자리는
+              배지가 아니라 글자 한 줄(.pending)이다. 승인되면 그 줄을 지우고 CarSave 와 같은
+              모양을 .links 안에 더한다:
+              <a href="https://play.google.com/store/apps/details?id=kr.mwomu.mwomu" ...>
+                <img src="/assets/badges/google-play-ko.svg" alt="Google Play에서 다운로드"></a> -->
       <article class="card" style="--accent:var(--mwomu)">
         <div class="top">
           <img class="ico" src="/assets/icons/mwomu-192.png" alt="" width="56" height="56">
-          <span class="badge soon">스토어 심사 중</span>
+          <span class="badge on">App Store 출시</span>
         </div>
         <h3>뭐무</h3>
         <div class="role">가족 식단 캘린더</div>
@@ -248,6 +258,11 @@
           지난 식단을 그대로 다시 담고, 식비는 저절로 쌓여요.
         </p>
         <div class="foot">
+          <div class="links">
+            <a href="https://apps.apple.com/kr/app/id6801053838" target="_blank" rel="noopener">
+              <img src="/assets/badges/app-store-ko.svg" alt="App Store에서 다운로드"></a>
+          </div>
+          <p class="pending">Google Play 준비 중</p>
           <a class="btn" href="https://mwomu.kr" target="_blank" rel="noopener">소개 페이지
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
           </a>

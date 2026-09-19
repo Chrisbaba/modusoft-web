@@ -74,8 +74,15 @@
   h1 em{font-style:normal;color:var(--sage)}
   .lede{margin-top:20px;font-size:17px;line-height:1.8;color:var(--body);max-width:460px}
   .lede b{color:var(--ink);font-weight:700}
-  .status{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-  .soon{padding:6px 13px;border-radius:var(--r-pill);font-size:13px;font-weight:700;color:#8A6100;background:#FFF3D6;border:1px solid #F0DFAE}
+  .status{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+  .status img{height:44px;display:block}
+  /* 아직 안 열린 스토어 자리 — 🔴 배지 아트워크를 회색·반투명으로 깔지 않는다. 그건 여전히
+     버튼 모양이라 «왜 안 눌리지» 가 남고, 두 회사 배지 가이드가 아트워크 변형과 링크 없는
+     배지를 둘 다 막는다. 글자 한 줄이면 누를 것이 없다는 사실이 모양으로 드러난다.
+     --body on 히어로 그라데이션 = 7.20:1 (실측). 가장 어두운 스톱 --cream #FAF8F6 기준이고
+     #F6FAF8 은 7.25 · --bg 는 7.43 이라 이 값이 최악이다 — 루트 카드의 7.63:1(흰 판)과
+     다른 판이므로 숫자를 따로 잰다. */
+  .pending{font-size:13.5px;font-weight:700;color:var(--body)}
   .jump{display:inline-flex;align-items:center;gap:7px;margin-top:20px;font-size:15px;font-weight:800;color:var(--sage-deep);
         text-decoration:none;border-bottom:2px solid var(--sage-line);padding-bottom:3px}
   .shotnote{margin-top:22px;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--body)}
@@ -251,12 +258,21 @@
     <div class="wrap">
       <div class="cols">
         <div class="copy">
-          <span class="eyebrow"><i></i>두통 기록 앱 · iPhone · Android</span>
+          <span class="eyebrow"><i></i>두통 기록 앱 · iPhone</span>
           <h1>아플 때 버튼 하나.<br><em>3초면 기록돼요</em></h1>
           <p class="lede">하루에도 여러 번 머리가 아픈 사람을 위해 만들었어요. <b>아픈 쪽 버튼만 누르면</b> 시각이 남고, 한의원에 내는 표는 앱이 대신 만들어요.</p>
-          <!-- 🔴 스토어 배지는 심사 승인 뒤에 건다. 누를 수 있게 생긴 것이 404 면
-               죽은 링크보다 나쁘다 (루트의 앱 카드와 같은 규칙). 닫는 판의 «스토어 심사 중» 도 함께 바꾼다. -->
-          <div class="status"><span class="soon">스토어 심사 중</span></div>
+          <!-- App Store 출시(2026-09-19, id 6799623732 — iTunes lookup 으로 실측).
+               🔴 Google Play 는 아직 검토 중이라 **배지를 안 건다** — 누를 수 있게 생긴 것이 404 면
+                  죽은 링크보다 나쁘다(루트의 앱 카드와 같은 규칙, 같은 날 실측 404).
+                  승인되면 .pending 줄을 지우고 이 .status 안에 배지를 하나 더 넣는다:
+                  <a href="https://play.google.com/store/apps/details?id=com.modupia.jeomjeom" target="_blank" rel="noopener">
+                    <img src="/assets/badges/google-play-ko.svg" alt="Google Play에서 다운로드"></a>
+                  그때 위 눈썹을 «두통 기록 앱 · iPhone · Android» 로 되돌리고 닫는 판의 .when 도 함께 고친다. -->
+          <div class="status">
+            <a href="https://apps.apple.com/kr/app/id6799623732" target="_blank" rel="noopener">
+              <img src="/assets/badges/app-store-ko.svg" alt="App Store에서 다운로드"></a>
+            <p class="pending">Google Play 준비 중</p>
+          </div>
           <a class="jump" href="#how">어떻게 쓰는지 보기 <span aria-hidden="true">↓</span></a>
           <p class="shotnote"><i></i>앱 화면은 실제 캡처예요 · 만들어 넣은 예시 기록</p>
         </div>
@@ -439,7 +455,11 @@
 
   <div class="close">
     <div class="wrap">
-      <div class="when">스토어 심사 중</div>
+      <!-- 🔴 이 판은 --sage-deep #1F6B60 이다. --sage-on-ink #9CC6B3 을 여기 쓰면 3.35:1 이라
+           13px 글자로는 AA(4.5:1) 미달이므로 쓰지 않는다. .when 의 기존 #D5ECE4 를 그대로 둔다
+           — 5.09:1 (실측). 같은 판의 흰 글자는 6.31:1.
+           Play 가 열리면 이 줄을 «App Store · Google Play» 로 고친다. -->
+      <div class="when">App Store 출시 · Google Play 준비 중</div>
       <h2>아플 때는 버튼 하나만</h2>
       <p>강도도, 「끝」도, 생활 기록도 나중에 채워도 돼요. 기록이 귀찮아지는 순간 아무도 안 쓰게 되니까요.</p>
       <div class="links"><a class="btn light" href="/jeomjeom/support/">자주 묻는 질문</a><a class="btn line" href="mailto:admin@modusoft.kr">admin@modusoft.kr</a></div>

@@ -1,0 +1,46 @@
+{
+  "apps": [
+    {
+      "id": "carsave",
+      "name": "카세이브",
+      "desc": "전기차 충전 타이밍 · 차계부 · 절약 인사이트",
+      "iconUrl": "https://modusoft.kr/more-apps/icons/carsave.png",
+      "ios": {
+        "enabled": true,
+        "appStoreId": "6762590737"
+      },
+      "android": {
+        "enabled": true,
+        "packageName": "kr.carsave.app"
+      }
+    },
+    {
+      "id": "mwomu",
+      "name": "뭐무",
+      "desc": "지난 식단이 다음 주 식단이 됩니다",
+      "iconUrl": "https://modusoft.kr/more-apps/icons/mwomu.png",
+      "ios": {
+        "enabled": true,
+        "appStoreId": "6801053838"
+      },
+      "android": {
+        "enabled": false,
+        "packageName": "kr.mwomu.mwomu"
+      }
+    },
+    {
+      "id": "jeomjeom",
+      "name": "점점",
+      "desc": "한 번의 탭으로 기록하는 두통 일기",
+      "iconUrl": "https://modusoft.kr/more-apps/icons/jeomjeom.png",
+      "ios": {
+        "enabled": true,
+        "appStoreId": "6799623732"
+      },
+      "android": {
+        "enabled": false,
+        "packageName": "com.modupia.jeomjeom"
+      }
+    }
+  ]
+}

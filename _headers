@@ -2,6 +2,11 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+# 앱 설정 화면 「모두소프트의 다른 앱」 목록 — 앱이 매번 받아 가므로 짧게만 캐시한다.
+/more-apps/apps.json
+  Cache-Control: public, max-age=300
+  Content-Type: application/json; charset=utf-8
+
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin

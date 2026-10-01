@@ -24,7 +24,7 @@
         "appStoreId": "6801053838"
       },
       "android": {
-        "enabled": false,
+        "enabled": true,
         "packageName": "kr.mwomu.mwomu"
       }
     },

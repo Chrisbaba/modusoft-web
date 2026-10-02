@@ -44,7 +44,7 @@ modusoft.kr — 모두소프트 앱 소개 허브. **순수 정적 사이트**�
 
 - `apps.json` 을 고치면 앱 업데이트 없이 반영된다(5분 캐시). 스토어 링크와 같은 원칙으로
   **심사 승인 후에만** 해당 플랫폼 `enabled` 를 `true` 로 켠다 — 켜진 앱은 「보기」를 누르면 스토어로 간다.
-  Play 공개 전인 앱은 `android.enabled: false`.
+  Play 공개 전인 앱은 `android.enabled: false`. (2026-10-02 기준 세 앱 모두 양대 스토어 켜짐)
 - JSON 이 깨지면 앱은 마지막 캐시 → 패키지 번들 목록으로 넘어가므로 화면이 깨지지는 않지만,
   올리기 전 `python3 -m json.tool more-apps/apps.json` 으로 확인한다.
 - 아이콘 `more-apps/icons/{id}.png` 는 각 앱 저장소의 1024 원본 아이콘을 192px 로 줄인 정사각형이다

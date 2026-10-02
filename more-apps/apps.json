@@ -38,7 +38,7 @@
         "appStoreId": "6799623732"
       },
       "android": {
-        "enabled": false,
+        "enabled": true,
         "packageName": "com.modupia.jeomjeom"
       }
     }

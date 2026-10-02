@@ -139,6 +139,9 @@
   .more{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:700;
         color:var(--body);text-decoration:none}
   .more:hover{color:var(--ink)}
+  /* 글자 링크가 둘 서는 줄(점점) — .links 의 8px 은 **배지 둘** 사이에 맞춘 값이라
+     글자끼리는 붙어 「소개 페이지 지원」 한 덩어리로 읽힌다. */
+  .foot .links.pages{gap:18px}
 
   /* ── 문의 ─────────────────────────────────────────────────────── */
   .contact{background:var(--ink);color:#F5F3F1}
@@ -180,7 +183,6 @@
     .sec-head p{font-size:23px;letter-spacing:-.8px}
     .apps{margin-top:26px;gap:14px}
     .card{padding:24px 22px 22px}
-    .card .foot .btn{height:44px;padding:0 18px}
     .contact .wrap{padding-block:52px;grid-template-columns:1fr;gap:26px}
     .contact h2{font-size:23px;letter-spacing:-.8px}
     .contact p{margin-top:12px;font-size:15px}
@@ -300,9 +302,14 @@
       <!-- 점점 — 양대 스토어 출시 완료. App Store(2026-09-19, id 6799623732) ·
            Google Play(2026-10-02, com.modupia.jeomjeom, 실측 200). 그래서 배지는 CarSave·뭐무와
            같은 「출시」이고, .pending 한 줄이던 자리는 배지 줄의 Play 배지가 됐다.
-           이 카드만 소개·지원이 사이트 안 경로(/jeomjeom/…)라 .foot 에 버튼 줄이 하나 더 있다.
-           스토어 배지(스토어로 나감)와 페이지 버튼(사이트 안)은 성격이 다르므로 한 줄에 섞지
-           않고 .links 를 둘로 나눴다 — 배지 줄 · 버튼 줄 순서다. -->
+           이 카드만 소개·지원이 사이트 안 경로(/jeomjeom/…)라 .foot 에 줄이 하나 더 있다.
+           스토어 배지(스토어로 나감)와 페이지 링크(사이트 안)는 성격이 다르므로 한 줄에 섞지
+           않고 .links 를 둘로 나눴다 — 배지 줄 · 링크 줄 순서다.
+           🔴 2026-10-02 — 그 줄을 .btn 알약에서 **.more 글자 링크**로 내렸다(사용자 지정,
+              «좌측과 동일한 방식»). 세 카드의 발치가 이제 같은 무게다.
+           ⚠️ **↗ 를 안 붙인 것은 빠뜨린 게 아니다.** 뭐무·CarSave 의 ↗ 는 «바깥 사이트로
+              새 탭» 을 뜻하는데(그래서 둘 다 target=_blank 다), 이 둘은 같은 탭에서 열리는
+              사이트 안 경로다. 글자만 맞추려고 ↗ 를 붙이면 화살표가 거짓말을 한다. -->
       <article class="card" style="--accent:var(--jeomjeom)">
         <div class="top">
           <img class="ico" src="/assets/icons/jeomjeom-192.png" alt="" width="56" height="56">
@@ -321,9 +328,9 @@
             <a href="https://play.google.com/store/apps/details?id=com.modupia.jeomjeom" target="_blank" rel="noopener">
               <img src="/assets/badges/google-play-ko.svg" alt="Google Play에서 다운로드"></a>
           </div>
-          <div class="links">
-            <a class="btn" href="/jeomjeom/">소개 페이지</a>
-            <a class="btn ghost" href="/jeomjeom/support/">지원</a>
+          <div class="links pages">
+            <a class="more" href="/jeomjeom/">소개 페이지</a>
+            <a class="more" href="/jeomjeom/support/">지원</a>
           </div>
         </div>
       </article>

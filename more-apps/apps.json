@@ -41,6 +41,20 @@
         "enabled": true,
         "packageName": "com.modupia.jeomjeom"
       }
+    },
+    {
+      "id": "moduway",
+      "name": "모두웨이",
+      "desc": "서울 지하철·버스 길찾기",
+      "iconUrl": "https://modusoft.kr/more-apps/icons/moduway.png",
+      "ios": {
+        "enabled": false,
+        "appStoreId": ""
+      },
+      "android": {
+        "enabled": true,
+        "packageName": "kr.moduway.app"
+      }
     }
   ]
 }

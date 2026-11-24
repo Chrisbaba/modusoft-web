@@ -48,8 +48,8 @@
       "desc": "서울 지하철·버스 길찾기",
       "iconUrl": "https://modusoft.kr/more-apps/icons/moduway.png",
       "ios": {
-        "enabled": false,
-        "appStoreId": ""
+        "enabled": true,
+        "appStoreId": "6827154552"
       },
       "android": {
         "enabled": true,

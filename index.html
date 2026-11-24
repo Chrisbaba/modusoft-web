@@ -348,24 +348,16 @@
         </div>
       </article>
 
-      <!-- 모두웨이 — 🔴 **반쪽 출시**다(2026-10-28). Google Play(kr.moduway.app, 실측 200)는
-           배포 중이고 App Store 는 심사 중이라 **아직 앱 ID 가 없다** — 그래서 Play 배지 한 장만
-           걸고 애플 자리는 글자 한 줄이다(.pending). 회색 배지 아트워크를 깔지 않는 이유는
-           .pending 머리말에 적혀 있다. 2026-10-01 까지 뭐무 카드가 스토어만 반대인 같은
-           반쪽 출시 상태였다(그때는 .pending 이 제 줄이었다 — 아래가 그 이야기다).
-           🔴 그 글자를 제 줄로 빼지 않고 **배지 줄 안에** 넣은 것은 모양 욕심이 아니다.
-              .card .foot 은 margin-top:auto 라 줄이 하나 늘면 그 카드의 배지 줄만 위로 들려
-              같은 행에 선 점점과 어긋난다 — 사용자가 두 번 빨간 네모를 친 바로 그 어긋남이다.
-              네 카드 모두 «배지 줄 + 링크 줄» 두 줄로 맞춰 둔다.
+      <!-- 모두웨이 — 양대 스토어 출시 완료. Google Play(2026-10-28, kr.moduway.app) ·
+           App Store(2026-11-25, id 6827154552, 실측 200). 그 전까지는 Play 배지 한 장 + 「App Store
+           심사 중」 글자(.pending)인 반쪽 출시였다. 배지 순서는 다른 세 카드와 같이 App Store 먼저.
            링크 글자가 「소개 페이지」가 아닌 이유: moduway.kr 은 소개가 아니라 **서비스 그
            자체**다(앱 없이 웹 모바일에서 바로 길을 찾는다). 뭐무·CarSave 의 소개 사이트와
-           성격이 다르므로 같은 말을 쓰면 거짓이 된다. 바깥으로 나가므로 ↗ 와 _blank 는 같다.
-           ✅ App Store 심사가 통과하면 할 일 — ① 배지를 「출시」로 ② App Store 배지를 Play
-              **앞에** 넣고(다른 세 카드와 같은 순서) ③ 이 .pending 글자를 지운다. -->
+           성격이 다르므로 같은 말을 쓰면 거짓이 된다. 바깥으로 나가므로 ↗ 와 _blank 는 같다. -->
       <article class="card" style="--accent:var(--moduway)">
         <div class="top">
           <img class="ico" src="/assets/icons/moduway-192.png" alt="" width="56" height="56">
-          <span class="badge on">Google Play 출시</span>
+          <span class="badge on">출시</span>
         </div>
         <h3>모두웨이</h3>
         <div class="role">서울 지하철·버스 길찾기</div>
@@ -375,9 +367,10 @@
         </p>
         <div class="foot">
           <div class="links">
+            <a href="https://apps.apple.com/kr/app/id6827154552" target="_blank" rel="noopener">
+              <img src="/assets/badges/app-store-ko.svg" alt="App Store에서 다운로드"></a>
             <a href="https://play.google.com/store/apps/details?id=kr.moduway.app" target="_blank" rel="noopener">
               <img src="/assets/badges/google-play-ko.svg" alt="Google Play에서 다운로드"></a>
-            <span class="pending">App Store 심사 중</span>
           </div>
           <a class="more" href="https://moduway.kr" target="_blank" rel="noopener">웹에서 바로 쓰기
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
